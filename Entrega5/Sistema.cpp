@@ -14,6 +14,8 @@ void Sistema::TransponerMatriz(Matriz<nat> matriz)
 };
 
 
+
+
 Array<Puntero<ITira>> Sistema::CalcularSiluetaDeLaCiudad(Array<Puntero<IEdificio>> ciudad)
 {
 	/*

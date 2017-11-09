@@ -16,6 +16,9 @@
     <Filter Include="Entrega5\Interfaces">
       <UniqueIdentifier>{2a4b271d-48c4-419b-ad77-37e36699f80c}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Implementacion\Lista">
+      <UniqueIdentifier>{47db3301-8410-4c7c-833b-a996f0f3acdf}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="CasoDePrueba.cpp">
@@ -35,6 +38,9 @@
     </ClCompile>
     <ClCompile Include="PruebasMock.cpp">
       <Filter>Entrega5\Pruebas</Filter>
+    </ClCompile>
+    <ClCompile Include="ListaEncadenada.cpp">
+      <Filter>Implementacion\Lista</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -61,6 +67,15 @@
     </ClInclude>
     <ClInclude Include="PruebasMock.h">
       <Filter>Entrega5\Pruebas</Filter>
+    </ClInclude>
+    <ClInclude Include="Lista.h">
+      <Filter>Implementacion\Lista</Filter>
+    </ClInclude>
+    <ClInclude Include="ListaEncadenada.h">
+      <Filter>Implementacion\Lista</Filter>
+    </ClInclude>
+    <ClInclude Include="Nodo.h">
+      <Filter>Implementacion\Lista</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
