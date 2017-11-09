@@ -97,8 +97,11 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="CasoDePrueba.cpp" />
+    <ClCompile Include="ComparacionITira.cpp" />
     <ClCompile Include="Edificio.cpp" />
     <ClCompile Include="ListaEncadenada.cpp" />
+    <ClCompile Include="ListaEncadenadaImp.cpp" />
+    <ClCompile Include="ListaEncadenadaIteracion.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="PruebasMock.cpp" />
     <ClCompile Include="Sistema.cpp" />
@@ -106,13 +109,18 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="CasoDePrueba.h" />
+    <ClInclude Include="ComparacionITira.h" />
     <ClInclude Include="Edificio.h" />
     <ClInclude Include="IEdificio.h" />
     <ClInclude Include="ISistema.h" />
     <ClInclude Include="ITira.h" />
     <ClInclude Include="Lista.h" />
     <ClInclude Include="ListaEncadenada.h" />
+    <ClInclude Include="ListaEncadenadaImp.h" />
+    <ClInclude Include="ListaEncadenadaIteracion.h" />
+    <ClInclude Include="ListaOrd.h" />
     <ClInclude Include="Nodo.h" />
+    <ClInclude Include="NodoLista.h" />
     <ClInclude Include="PruebasMock.h" />
     <ClInclude Include="Sistema.h" />
     <ClInclude Include="Tira.h" />

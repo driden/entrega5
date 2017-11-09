@@ -2,6 +2,7 @@
 #include "Lista.h"
 #include "ListaOrd.h"
 #include "ListaEncadenadaImp.h"
+#include "ComparacionITira.h"
 
 Sistema::Sistema()
 {
@@ -18,7 +19,9 @@ void Sistema::TransponerMatriz(Matriz<nat> matriz)
 
 Puntero<ListaOrd<Puntero<ITira>>> GetSiluetas(Array<Puntero<IEdificio>> ciudad)
 {
-	Comparador<Puntero<ITira>> compTira;
+	Puntero<Comparacion<Puntero<ITira>>> pComp = new ComparacionITira();
+	Comparador<Puntero<ITira>> compTira(pComp);
+
 	Puntero<ListaOrd<Puntero<ITira>>> siluetas = new ListaEncadenadaImp<Puntero<ITira>>(compTira);
 
 	for (nat i = 0; i < ciudad.Largo ; i++)
@@ -39,11 +42,20 @@ Puntero<ListaOrd<Puntero<ITira>>> GetSiluetas(Array<Puntero<IEdificio>> ciudad)
 Array<Puntero<ITira>> Sistema::CalcularSiluetaDeLaCiudad(Array<Puntero<IEdificio>> ciudad)
 {
 	// Paso 1: Convierto todos los IEdificio en ITiras de (x, altura)
-	Array<Puntero<ITira>> siluetas = GetSiluetas(ciudad);
+	Puntero<ListaOrd<Puntero<ITira>>> siluetas = GetSiluetas(ciudad);
 
+	std::cout << "Tiras:\n";
+	
+	Iterador<Puntero<ITira>> iterTiras = siluetas->ObtenerIterador();
 
+	while (iterTiras.HayElemento())
+	{
+		Puntero<ITira> tiraActual = iterTiras.ElementoActual();
+		std::cout << "(x:" << tiraActual->ObtenerX() <<", h:" << tiraActual->ObtenerAltura()<<") ";
 
-
+		iterTiras.Avanzar();
+	}
+	std::cout << endl;
 	return Array<Puntero<ITira>>(); //retorno por defecto
 };
 

@@ -19,6 +19,12 @@
     <Filter Include="Implementacion\Lista">
       <UniqueIdentifier>{47db3301-8410-4c7c-833b-a996f0f3acdf}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Implementacion\Lista Ordenada">
+      <UniqueIdentifier>{986d49f0-8a63-46e6-9330-5276172a0641}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Entrega5\Comparadores">
+      <UniqueIdentifier>{e569400b-ae30-4ea6-a1b1-da7c3e7502a9}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="CasoDePrueba.cpp">
@@ -41,6 +47,15 @@
     </ClCompile>
     <ClCompile Include="ListaEncadenada.cpp">
       <Filter>Implementacion\Lista</Filter>
+    </ClCompile>
+    <ClCompile Include="ListaEncadenadaImp.cpp">
+      <Filter>Implementacion\Lista Ordenada</Filter>
+    </ClCompile>
+    <ClCompile Include="ListaEncadenadaIteracion.cpp">
+      <Filter>Implementacion\Lista Ordenada</Filter>
+    </ClCompile>
+    <ClCompile Include="ComparacionITira.cpp">
+      <Filter>Entrega5\Comparadores</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -76,6 +91,21 @@
     </ClInclude>
     <ClInclude Include="Nodo.h">
       <Filter>Implementacion\Lista</Filter>
+    </ClInclude>
+    <ClInclude Include="NodoLista.h">
+      <Filter>Implementacion\Lista Ordenada</Filter>
+    </ClInclude>
+    <ClInclude Include="ListaEncadenadaImp.h">
+      <Filter>Implementacion\Lista Ordenada</Filter>
+    </ClInclude>
+    <ClInclude Include="ListaEncadenadaIteracion.h">
+      <Filter>Implementacion\Lista Ordenada</Filter>
+    </ClInclude>
+    <ClInclude Include="ListaOrd.h">
+      <Filter>Implementacion\Lista Ordenada</Filter>
+    </ClInclude>
+    <ClInclude Include="ComparacionITira.h">
+      <Filter>Entrega5\Comparadores</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
