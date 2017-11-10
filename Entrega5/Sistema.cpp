@@ -52,26 +52,30 @@ int Max(int n1, int n2)
 	return n1 > n2 ? n1 : n2;
 }
 
-Puntero<Lista<Puntero<ITira>>> MergeSkyLines(Puntero<Lista<Puntero<ITira>>> skIzq, Puntero<Lista<Puntero<ITira>>> skDer)
+void InsertarRestantes(Iterador<Puntero<ITira>> itIzq, Iterador<Puntero<ITira>> itDer, Puntero<Lista<Puntero<ITira>>> lMerge)
 {
-	//assert(estaOrdenada(skIzq));
-	//assert(estaOrdenada(skDer));
-	//assert(noTieneAlturasRepetidas(skIzq));
-	//assert(noTieneAlturasRepetidas(skDer));
+	if(itIzq.HayElemento())
+	{
+		while(itIzq.HayElemento())
+		{
+			lMerge->Insertar(itIzq.ElementoActual());
+			itIzq.Avanzar();
+		}
+	}
+	else if (itDer.HayElemento())
+	{
+		while (itDer.HayElemento())
+		{
+			lMerge->Insertar(itDer.ElementoActual());
+			itDer.Avanzar();
+		}
+	}
+}
 
-	
-
-	Iterador<Puntero<ITira>> itIzq = skIzq->ObtenerIterador(), itDer = skDer->ObtenerIterador();
-
-
-
+void MergearListas(Iterador<Puntero<ITira>> itIzq, Iterador<Puntero<ITira>> itDer, Puntero<Lista<Puntero<ITira>>> lMerge)
+{
 	nat hIzq = 0, hDer = 0;
 	Puntero<ITira> tira;
-
-	Puntero<Comparacion<Puntero<ITira>>> pComp = new ComparacionITira();
-	Comparador<Puntero<ITira>> compTira(pComp);
-	Puntero<Lista<Puntero<ITira>>> lMerge = new ListaEncadenada<Puntero<ITira>>(compTira);
-
 	while(itIzq.HayElemento() && itDer.HayElemento())
 	{
 		Puntero<ITira> pDer = itDer.ElementoActual(), pIzq = itIzq.ElementoActual();
@@ -100,23 +104,37 @@ Puntero<Lista<Puntero<ITira>>> MergeSkyLines(Puntero<Lista<Puntero<ITira>>> skIz
 		tira = new Tira(x, nuevaH);
 		lMerge->Insertar(tira);
 	}
+}
 
-	if(itIzq.HayElemento())
+Puntero<Lista<Puntero<ITira>>> MergeSkyLines(Puntero<Lista<Puntero<ITira>>> skIzq, Puntero<Lista<Puntero<ITira>>> skDer)
+{
+	//assert(estaOrdenada(skIzq));
+	//assert(estaOrdenada(skDer));
+	//assert(noTieneAlturasRepetidas(skIzq));
+	//assert(noTieneAlturasRepetidas(skDer));
+
+	if (!skIzq && skDer) //Si la izq es nula
 	{
-		while(itIzq.HayElemento())
-		{
-			lMerge->Insertar(itIzq.ElementoActual());
-			itIzq.Avanzar();
-		}
+		return skDer;
 	}
-	else if (itDer.HayElemento())
+	if (skIzq && !skDer) //Si la der es nula
 	{
-		while (itDer.HayElemento())
-		{
-			lMerge->Insertar(itDer.ElementoActual());
-			itDer.Avanzar();
-		}
+		return skIzq;
 	}
+	if(!skIzq && !skDer)
+	{
+		return nullptr;
+	}
+
+	Iterador<Puntero<ITira>> itIzq = skIzq->ObtenerIterador(), itDer = skDer->ObtenerIterador();
+
+	Puntero<Comparacion<Puntero<ITira>>> pComp = new ComparacionITira();
+	Comparador<Puntero<ITira>> compTira(pComp);
+	Puntero<Lista<Puntero<ITira>>> lMerge = new ListaEncadenada<Puntero<ITira>>(compTira);
+
+	MergearListas(itIzq, itDer, lMerge);
+
+	InsertarRestantes(itIzq, itDer, lMerge);
 	return lMerge;
 }
 
