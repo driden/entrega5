@@ -1,4 +1,5 @@
-#pragma once
+#ifndef LISTA_ENCADENADA_ORD_CPP
+#define LISTA_ENCADENADA_ORD_CPP
 
 #include "ListaOrd.h"
 #include "NodoLista.h"
@@ -65,6 +66,12 @@ public:
 	// PRE: -
 	// POS: Retorna un iterador de la lista
 	Iterador<T> ObtenerIterador() const override;	
+
+	// PRE:
+	// POS: devuelve un Array conteniendo los elementos de la lista
+	//Array<T> AArray() const override;
 };
 
 #include "ListaEncadenadaImp.cpp"
+
+#endif

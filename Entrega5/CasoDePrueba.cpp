@@ -19,9 +19,9 @@ Cadena CasoDePrueba::GetNombre()const
 
 void CasoDePrueba::CorrerPruebaConcreta()
 {
-	PruebaTransponerMatriz();
+	//PruebaTransponerMatriz();
 	PruebaCalcularSilueta();
-	PruebaCalcularCoeficienteBinomial();
+	//PruebaCalcularCoeficienteBinomial();
 }
 
 void CasoDePrueba::Verificar(TipoRetorno obtenido, TipoRetorno esperado, Cadena comentario)
@@ -355,9 +355,9 @@ void CasoDePrueba::PruebaTransMat3(){
 
 void CasoDePrueba::PruebaCalcularSilueta()
 {
-	PruebaCalcSil1();
+	/*PruebaCalcSil1();
 	PruebaCalcSil2();
-	PruebaCalcSil3();
+	PruebaCalcSil3();*/
 	PruebaCalcSil4();
 }
 

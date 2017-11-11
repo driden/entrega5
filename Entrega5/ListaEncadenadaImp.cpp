@@ -185,4 +185,19 @@ Iterador<T> ListaEncadenadaImp<T>::ObtenerIterador() const
 	return new ListaEncadenadaIteracion<T>(*this);
 }
 
+//template <class T>
+//Array<T> ListaEncadenadaImp<T>::AArray() const
+//{
+//	Array<T> arr(cantidadElementos);
+//	Puntero<NodoLista<T>> iter = lista;
+//
+//	for(nat i = 0; i < cantidadElementos; i++)
+//	{
+//		arr[i] = iter->_data;
+//		iter = iter->_sig;
+//	}
+//
+//	return arr;
+//}
+
 #endif

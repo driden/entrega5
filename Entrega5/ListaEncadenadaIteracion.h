@@ -1,4 +1,5 @@
-#pragma once
+#ifndef LISTA_ENCADENADA_ITERACION_H
+#define LISTA_ENCADENADA_ITERACION_H
 
 #include "Iterable.h"
 #include "ListaEncadenadaImp.h"
@@ -43,4 +44,4 @@ public:
 };
 
 #include "ListaEncadenadaIteracion.cpp"
-
+#endif
