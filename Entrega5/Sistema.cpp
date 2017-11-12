@@ -3,6 +3,8 @@
 #include "ListaEncadenadaImp.h"
 #include "ComparacionITira.h"
 #include "ListaEncadenada.h"
+#include <tuple>
+#include <condition_variable>
 
 //#define DEBUG
 
@@ -12,12 +14,48 @@ Sistema::Sistema()
 	compITira = Comparador<Puntero<ITira>>(pComp);
 }
 
+void Intercambiar(Matriz<nat>& matriz, int x3, int y3, int x2, int y2, int dimension)
+{
+	// pq es el de abajo a la izq, posX y posY son el de arriba a la der
+	int p = x3, q = y3, posX = x2;
+
+	for (int x = p; x < dimension + p; x++)
+	{
+		int posY = y2;
+		for(int y = q ; y < dimension + q; y++)
+		{			
+			int nX = posX;
+			int nY = posY; 
+			int temp = matriz[nX][nY];
+
+			matriz[nX][nY] = matriz[x][y];
+			matriz[x][y] = temp;
+			posY++;
+		}
+
+		posX++;
+	}
+}
+
+void traspuesta(Matriz<nat> &m, int x, int y, int n) // n es la dimension
+{
+	if (n > 1) {
+		assert(n%2==0);
+
+		traspuesta(m, x, y, n / 2);
+		traspuesta(m, x + n / 2, y, n / 2);
+		traspuesta(m, x, y + n / 2, n / 2);
+		traspuesta(m, x + n / 2, y + n / 2, n / 2);
+
+		Intercambiar(m, x, y + (n / 2), x + (n / 2), y , n / 2);
+	}
+	else
+		assert(n == 1);
+}
+
 void Sistema::TransponerMatriz(Matriz<nat> matriz)
 {
-	/*
-	Codigo de implementacion de la solucion
-	*/
-	return; //retorno por defecto
+	traspuesta(matriz, 0, 0, matriz.Largo);	
 };
 
 template <class T>

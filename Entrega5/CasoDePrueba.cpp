@@ -19,8 +19,8 @@ Cadena CasoDePrueba::GetNombre()const
 
 void CasoDePrueba::CorrerPruebaConcreta()
 {
-	//PruebaTransponerMatriz();
-	PruebaCalcularSilueta();
+	PruebaTransponerMatriz();
+	//PruebaCalcularSilueta();
 	//PruebaCalcularCoeficienteBinomial();
 }
 
