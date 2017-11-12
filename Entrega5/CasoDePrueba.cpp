@@ -20,8 +20,8 @@ Cadena CasoDePrueba::GetNombre()const
 void CasoDePrueba::CorrerPruebaConcreta()
 {
 	PruebaTransponerMatriz();
-	//PruebaCalcularSilueta();
-	//PruebaCalcularCoeficienteBinomial();
+	PruebaCalcularSilueta();
+	PruebaCalcularCoeficienteBinomial();
 }
 
 void CasoDePrueba::Verificar(TipoRetorno obtenido, TipoRetorno esperado, Cadena comentario)

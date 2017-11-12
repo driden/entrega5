@@ -287,6 +287,7 @@ Puntero<ListaOrd<Puntero<ITira>>> Sistema::SkyLine(Array<Puntero<ListaOrd<Punter
 	}
 	return nullptr;
 }
+
 Array<Puntero<ITira>> Sistema::CalcularSiluetaDeLaCiudad(Array<Puntero<IEdificio>> ciudad)
 {
 	// Paso 1: Convierto todos los IEdificio en ITiras de (x, altura)
@@ -331,12 +332,24 @@ Array<Puntero<ITira>> Sistema::CalcularSiluetaDeLaCiudad(Array<Puntero<IEdificio
 };
 
 
+
 nat Sistema::CalcularCoeficienteBinomial(nat n, nat k)
 {
-	/*
-	Codigo de implementacion de la solucion
-	*/
-	return 0; //retorno por defecto
+	if (k > n) return 0;
+	if (n < 1) return 1;
+
+	Array<int> memorizacion(n + 1,0);
+	memorizacion[0] = 1; 
+
+	for (nat i = 1; i <= n; i++)
+	{
+		// Compute next row of pascal triangle using
+		// the previous row
+		for (nat j = i; j > 0; j--)
+			memorizacion[j] = memorizacion[j] + memorizacion[j - 1];
+	}
+	return memorizacion[k];
+
 };
 
 
