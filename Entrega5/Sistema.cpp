@@ -343,8 +343,6 @@ nat Sistema::CalcularCoeficienteBinomial(nat n, nat k)
 
 	for (nat i = 1; i <= n; i++)
 	{
-		// Compute next row of pascal triangle using
-		// the previous row
 		for (nat j = i; j > 0; j--)
 			memorizacion[j] = memorizacion[j] + memorizacion[j - 1];
 	}
