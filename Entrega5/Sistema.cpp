@@ -37,6 +37,8 @@ void Intercambiar(Matriz<nat>& matriz, int x3, int y3, int x2, int y2, int dimen
 	}
 }
 
+// PRE: m es una Matriz
+// POS: La matriz 'm' queda traspuesta.
 void traspuesta(Matriz<nat> &m, int x, int y, int n) // n es la dimension
 {
 	if (n > 1) {
@@ -58,6 +60,8 @@ void Sistema::TransponerMatriz(Matriz<nat> matriz)
 	traspuesta(matriz, 0, 0, matriz.Largo);	
 };
 
+//PRE: lista es una Lista
+//POS: Devuelve, en memoria un array con los elementos de lista, en el mismo orden.
 template <class T>
 Array<T> ListOrdToArray(Puntero<ListaOrd<T>> lista)
 {
@@ -73,6 +77,8 @@ Array<T> ListOrdToArray(Puntero<ListaOrd<T>> lista)
 	return arrConv;
 }
 
+// PRE: -
+// POS: Devuelve un Array de Listas ordenadas de ITira
 Array<Puntero<ListaOrd<Puntero<ITira>>>> GetSiluetas(Array<Puntero<IEdificio>> ciudad)
 {
 	Puntero<Comparacion<Puntero<ITira>>> pComp = new ComparacionITira();
@@ -102,11 +108,15 @@ Array<Puntero<ListaOrd<Puntero<ITira>>>> GetSiluetas(Array<Puntero<IEdificio>> c
 	return arrSiluetas;
 }
 
+// PRE:
+// POS: devuelve el max de dos numeros.
 int Max(int n1, int n2)
 {
 	return n1 > n2 ? n1 : n2;
 }
 
+// PRE: Los iteradores ya fueron procesados por el algoritmo de mergeo de siluetas
+// POS: Inserta, si quedan remanantes, de una silueta en la lista de merge
 void InsertarRestantes(Iterador<Puntero<ITira>> itIzq, Iterador<Puntero<ITira>> itDer, Puntero<ListaOrd<Puntero<ITira>>> &lMerge)
 {
 	int hAnterior = -1;
@@ -142,6 +152,8 @@ void InsertarRestantes(Iterador<Puntero<ITira>> itIzq, Iterador<Puntero<ITira>> 
 
 }
 
+// PRE: 
+// POS: Mergea las dos listas en la lista de resultado
 void MergearListas(Iterador<Puntero<ITira>> itIzq, Iterador<Puntero<ITira>> itDer, Puntero<ListaOrd<Puntero<ITira>>> &lMerge)
 {
 #ifdef DEBUG
@@ -219,6 +231,8 @@ void MergearListas(Iterador<Puntero<ITira>> itIzq, Iterador<Puntero<ITira>> itDe
 #endif // DEBUG
 }
 
+// PRE: las dos siluetas ya fueron 'mergeadas'
+// POS: Mergea dos siluetas
 Puntero<ListaOrd<Puntero<ITira>>> Sistema::MergeSkyLines(Puntero<ListaOrd<Puntero<ITira>>> skIzq, Puntero<ListaOrd<Puntero<ITira>>> skDer)
 {
 	if (!skIzq && skDer) //Si la izq es nula
@@ -246,6 +260,8 @@ Puntero<ListaOrd<Puntero<ITira>>> Sistema::MergeSkyLines(Puntero<ListaOrd<Punter
 	return lMerge;
 }
 
+// PRE: -
+// POS: devuelve una lista ordenada delos elementos de tipo tira que estan en el array dadas poscion de inicio y fin
 Puntero<ListaOrd<Puntero<ITira>>> ListarTiras (Array<Puntero<ListaOrd<Puntero<ITira>>>> tiras, int desde, int hasta)
 {
 	Puntero<Comparacion<Puntero<ITira>>> pComp = new ComparacionITira();
@@ -265,7 +281,8 @@ Puntero<ListaOrd<Puntero<ITira>>> ListarTiras (Array<Puntero<ListaOrd<Puntero<IT
 	}
 	return l;
 }
-
+// PRE:
+// POS: Algoritmo principal de divide y conquistaras para ordenar las siluetas
 Puntero<ListaOrd<Puntero<ITira>>> Sistema::SkyLine(Array<Puntero<ListaOrd<Puntero<ITira>>>> tiras, int desde, int hasta)
 {
 	if (desde < hasta)

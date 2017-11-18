@@ -355,9 +355,9 @@ void CasoDePrueba::PruebaTransMat3(){
 
 void CasoDePrueba::PruebaCalcularSilueta()
 {
-	/*PruebaCalcSil1();
+	PruebaCalcSil1();
 	PruebaCalcSil2();
-	PruebaCalcSil3();*/
+	PruebaCalcSil3();
 	PruebaCalcSil4();
 }
 
